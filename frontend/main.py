@@ -1,4 +1,5 @@
 import pygame
+from guineapig import Guineapig
 
 # Initialize Pygame
 pygame.init()
@@ -13,6 +14,7 @@ pygame.display.set_caption("Image Display Example")
 try:
     # Load the image ONCE here, before the loop
     image = pygame.image.load('images/guineapig.png') 
+    player_pig = Guineapig(screen_width // 2, screen_height // 2)
 except pygame.error as message:
     print(f"Cannot load image: {message}")
     pygame.quit()
@@ -24,13 +26,6 @@ image_rect.center = (screen_width // 2, screen_height // 2)  # Center the image
 # --- END OF ASSET LOADING ---
 
 
-class GuineaPig:
-    def __init__(self):
-        pass
-        
-
-    def update(self):
-        pass
 
 # --- THIS IS YOUR "MAIN" LOOP ---
 running = True

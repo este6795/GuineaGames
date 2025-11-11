@@ -17,7 +17,7 @@ class Enemy:
         self.position = [pos_x, pos_y]
         self.color = color
         self.seed = seed
-        self.loaded_image = load_image("enemy/MG_Dragon.png", TILE_SIZE)
+        self.loaded_image = load_image("enemy\MG_Dragon.png", TILE_SIZE)
         self.image = pygame.transform.scale(self.loaded_image, (TILE_SIZE, TILE_SIZE))
     
     def move_towards_player(self, player_pos, maze):

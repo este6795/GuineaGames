@@ -8,11 +8,12 @@ base_path = os.path.dirname(__file__)
 assets_path = os.path.join(base_path, ".../Global Assets/Game Sprites/Guinea Pigs/")
 
 class Player:
-    def __init__(self, x=0, y=0, color=RED, seed=None):
+    def __init__(self, x=0, y=0, color=RED, seed=None, file_path=None):
         self.pos_x = x
         self.pos_y = y
         self.color = color
         self.seed = seed
+        self.file_path = assets_path + "guinea_pig.png" if file_path is None else file_path
 
     def move(self, dx, dy, maze):
         """Move the player by (dx, dy) if the target position is not a wall."""

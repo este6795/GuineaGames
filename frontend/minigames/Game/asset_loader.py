@@ -1,6 +1,10 @@
 import os 
 import pygame 
 
+### FIX ME ###
+# This file should handle loading assets such as images, sounds, and fonts from the Global Assets directory, however, seems to not be doing that currently.
+
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ASSETS_DIR = os.path.join(BASE_DIR, "Global Assets", "Game Sprites", "Mini-game")
 PIG_ASSETS_DIR = os.path.join(BASE_DIR, "Global Assets", "Game Sprites", "Guinea Pigs")

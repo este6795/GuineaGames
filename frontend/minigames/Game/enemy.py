@@ -17,8 +17,8 @@ class Enemy:
         self.position = [pos_x, pos_y]
         self.color = color
         self.seed = seed
-        self.loaded_image = load_image("enemy/MG_Dragon.png", TILE_SIZE)
-        self.image = pygame.transform.scale(self.loaded_image, (TILE_SIZE, TILE_SIZE))
+#       self.loaded_image = load_image("enemy/MG_Dragon.png", TILE_SIZE)
+#        self.image = pygame.transform.scale(self.loaded_image, (TILE_SIZE, TILE_SIZE))
     
     def move_towards_player(self, player_pos, maze):
         """Move the enemy one step towards the player if possible."""
@@ -59,7 +59,7 @@ class Enemy:
 
     def draw(self, screen):
         """Draw the enemy on the given screen."""
-#        rect = pygame.Rect(self.position[0] * TILE_SIZE, self.position[1] * TILE_SIZE, TILE_SIZE, TILE_SIZE)
-#        pygame.draw.rect(screen, self.color, rect)
-        screen.blit(self.image, (self.position[0] * TILE_SIZE, self.position[1] * TILE_SIZE))
+        rect = pygame.Rect(self.position[0] * TILE_SIZE, self.position[1] * TILE_SIZE, TILE_SIZE, TILE_SIZE)
+        pygame.draw.rect(screen, self.color, rect)
+#        screen.blit(self.image, (self.position[0] * TILE_SIZE, self.position[1] * TILE_SIZE))
     

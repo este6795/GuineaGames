@@ -1,6 +1,11 @@
 import pygame 
 import random
+import os
 from settings import TILE_SIZE, RED
+
+# Add path to assets if needed
+base_path = os.path.dirname(__file__)
+assets_path = os.path.join(base_path, ".../Global Assets/Game Sprites/Guinea Pigs/")
 
 class Player:
     def __init__(self, x=0, y=0, color=RED, seed=None):

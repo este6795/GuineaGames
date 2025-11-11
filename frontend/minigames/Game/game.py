@@ -10,7 +10,7 @@ from fruits import Fruit
 
 # Path to assets 
 base_path = os.path.dirname(__file__)
-assets_path = os.path.join(base_path, "../assets/audio/")
+assets_path = os.path.join(base_path, ".../Global Assets/Mini-game/assets")
 
 class Game: 
     def __init__(self): 
@@ -91,7 +91,7 @@ class Game:
     
     def run(self):
         """Main game loop."""
-        self.play_music("music.wav")
+        self.play_music("audio/music.wav")
         while self.running:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:

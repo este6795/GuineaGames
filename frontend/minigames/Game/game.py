@@ -24,7 +24,7 @@ class Game:
         self.PACMAN_MAZE = generator.generate()
         
         # Initialize player
-        self.player = Player(seed=42)
+        self.player = Player(seed=42, speed=1000)
         self.PACMAN_MAZE = self.player.add_player(self.PACMAN_MAZE)
 
         # Initialize Enemy

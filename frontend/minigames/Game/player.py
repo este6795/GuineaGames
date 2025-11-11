@@ -3,26 +3,33 @@ import random
 import os
 from settings import TILE_SIZE, RED
 
-# Add path to assets if needed
-base_path = os.path.dirname(__file__)
-assets_path = os.path.join(base_path, ".../Global Assets/Game Sprites/Guinea Pigs/")
-
 class Player:
-    def __init__(self, x=0, y=0, color=RED, seed=None, file_path=None):
+    def __init__(self, x=0, y=0, color=RED, seed=None, speed=300):
         self.pos_x = x
         self.pos_y = y
         self.color = color
         self.seed = seed
-        self.file_path = assets_path + "guinea_pig.png" if file_path is None else file_path
+        self.speed = speed  # milliseconds per move (Bigger is slower)
+        self.last_move_time = 0 # Time of the last move in milliseconds
+
+    def can_move(self):
+        """Determine if the player can move based on speed and time."""
+        now = pygame.time.get_ticks()
+        return now - self.last_move_time >= self.speed
 
     def move(self, dx, dy, maze):
         """Move the player by (dx, dy) if the target position is not a wall."""
+
+        if not self.can_move():
+            return
+
         new_x = self.pos_x + dx
         new_y = self.pos_y + dy
         # Only move when the destination is not a wall
         if not maze.is_wall(new_x, new_y):
             self.pos_x = new_x
             self.pos_y = new_y
+            self.last_move_time = pygame.time.get_ticks()
 
     def add_player(self, grid):
         """Randomly add player ('P') to the maze."""

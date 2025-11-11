@@ -10,7 +10,7 @@ from fruits import Fruit
 
 # Path to assets 
 base_path = os.path.dirname(__file__)
-assets_path = os.path.join(base_path, ".../Global Assets/Mini-game/assets")
+assets_path = os.path.join(base_path, ".../Global Assets/Mini-game/")
 
 class Game: 
     def __init__(self): 

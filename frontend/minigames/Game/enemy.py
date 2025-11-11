@@ -9,7 +9,7 @@ from maze_generator import MazeGenerator
 
 # Define path to enemy assets (if needed in future)
 base_path = os.path.dirname(__file__)
-assets_path = os.path.join(base_path, ".../Global Assets/Game Sprites/Mini-game/assets/images/enemy")
+assets_path = os.path.join(base_path, ".../Global Assets/Game Sprites/Mini-game/images/enemy")
 
 class Enemy:
     def __init__(self, pos_x=0, pos_y=0, color=GOLD, seed=None):

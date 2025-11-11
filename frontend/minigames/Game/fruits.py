@@ -5,7 +5,7 @@ from settings import GREEN, TILE_SIZE
 
 # Defining path to fruit assets (if needed in future)
 base_path = os.path.dirname(__file__)
-assets_path = os.path.join(base_path, ".../Global Assets/Game Sprites/Mini-game/assets/images/fruit")
+assets_path = os.path.join(base_path, ".../Global Assets/Game Sprites/Mini-game/images/fruit")
 
 class Fruit:
     def __init__(self, fruit_chance=0.1, color=GREEN, seed=None):

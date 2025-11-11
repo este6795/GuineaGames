@@ -24,7 +24,7 @@ class Game:
         self.PACMAN_MAZE = generator.generate()
         
         # Initialize player
-        self.player = Player(seed=42, speed=1000)
+        self.player = Player(seed=42, speed=300)
         self.PACMAN_MAZE = self.player.add_player(self.PACMAN_MAZE)
 
         # Initialize Enemy
@@ -106,7 +106,7 @@ class Game:
             self.screen.fill(BLACK)
             self.maze.draw(self.screen)
             self.player.draw(self.screen)
-            #self.enemy.move_towards_player((self.player.pos_x, self.player.pos_y), self.maze)
+            self.enemy.move_towards_player((self.player.pos_x, self.player.pos_y), self.maze)
             self.enemy.draw(self.screen)
             self.PACMAN_MAZE = self.fruit.if_collected((self.player.pos_x, self.player.pos_y), self.PACMAN_MAZE)
             self.fruit.draw(self.screen, self.PACMAN_MAZE)

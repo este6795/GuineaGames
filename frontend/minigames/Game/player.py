@@ -29,7 +29,7 @@ class Player:
         if not maze.is_wall(new_x, new_y):
             self.pos_x = new_x
             self.pos_y = new_y
-            self.last_move_time = pygame.time.get_ticks()
+            self.last_move_time = pygame.time.get_ticks() # Update last move time
 
     def add_player(self, grid):
         """Randomly add player ('P') to the maze."""

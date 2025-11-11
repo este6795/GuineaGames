@@ -6,16 +6,9 @@ import random
 import os
 from settings import TILE_SIZE, GOLD
 from maze_generator import MazeGenerator
-
-# Compute the assets directory relative to this file.
-# enemy.py is at: frontend/minigames/Game/enemy.py
-# We want: frontend/Global Assets/Game Sprites/Mini-game/images/enemy
-base_path = os.path.dirname(__file__)
-assets_dir = os.path.abspath(os.path.join(base_path, os.pardir, os.pardir, "Global Assets", "Game Sprites", "Mini-game", "images", "enemy"))
-
-
+from asset_loader import load_image
 class Enemy:
-    def __init__(self, pos_x=0, pos_y=0, color=GOLD, seed=None, file_path=None):
+    def __init__(self, pos_x=0, pos_y=0, color=GOLD, seed=None):
         """Create an enemy. If file_path is None, use the repository assets_dir.
 
         file_path may be either a directory containing the image or a direct
@@ -24,27 +17,7 @@ class Enemy:
         self.position = [pos_x, pos_y]
         self.color = color
         self.seed = seed
-
-        if file_path is None:
-            file_path = assets_dir
-
-        # If given a directory, join with expected filename. Otherwise treat as file path.
-        if os.path.isdir(file_path):
-            image_path = os.path.join(file_path, "MG_Dragon.png")
-        else:
-            image_path = file_path
-
-        # Try to load the image; if it fails, create a fallback surface so the game doesn't crash.
-        try:
-            self.loaded_image = pygame.image.load(image_path).convert_alpha()
-        except Exception:
-            # Fallback: create a simple colored surface and log a message to console
-            # (avoid printing in production; this is helpful for development)
-            print(f"Warning: enemy image not found at {image_path}. Using fallback rectangle.")
-            surf = pygame.Surface((TILE_SIZE, TILE_SIZE), pygame.SRCALPHA)
-            surf.fill(self.color)
-            self.loaded_image = surf
-
+        self.loaded_image = load_image("enemy/MG_Dragon.png", TILE_SIZE)
         self.image = pygame.transform.scale(self.loaded_image, (TILE_SIZE, TILE_SIZE))
     
     def move_towards_player(self, player_pos, maze):

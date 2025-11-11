@@ -91,7 +91,7 @@ class Game:
     
     def run(self):
         """Main game loop."""
-        self.play_music("audio/music.wav")
+      #  self.play_music("audio/music.wav")
         while self.running:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:

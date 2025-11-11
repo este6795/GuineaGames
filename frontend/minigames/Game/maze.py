@@ -1,5 +1,10 @@
 import pygame 
+import os
 from settings import TILE_SIZE,BLUE, GREEN, GOLD, BLACK, RED
+
+# Maze asset path (if needed in future)
+base_path = os.path.dirname(__file__)
+assets_path = os.path.join(base_path, ".../Global Assets/Game Sprites/Mini-game/images/Minigame Floor_Wall")
 
 class Maze: 
     def __init__(self, layout):

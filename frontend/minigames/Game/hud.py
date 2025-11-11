@@ -15,7 +15,12 @@
     # We need to somehow display a you win screen when the player loses
 
 import pygame
+import os
 from settings import FONT_NAME, FONT_SIZE, WHITE
+
+# HUD asset path (if needed in future)
+base_path = os.path.dirname(__file__)
+assets_path = os.path.join(base_path, ".../Global Assets/Game Sprites/Mini-game/images/hud")
 
 class HUD:
     def __init__(self):

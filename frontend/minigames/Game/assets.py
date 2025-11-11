@@ -3,6 +3,7 @@ import pygame
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ASSETS_DIR = os.path.join(BASE_DIR, "Global Assets", "Game Sprites", "Mini-game")
+PIG_ASSETS_DIR = os.path.join(BASE_DIR, "Global Assets", "Game Sprites", "Guinea Pigs")
 
 def load_image(name, scale=None):
     """Load an image from the assets directory. Optionally scale it."""
@@ -15,7 +16,19 @@ def load_image(name, scale=None):
     except Exception as e:
         print(f"Error loading image {name}: {e}")
         return None
-    
+
+def load_guinea_image(name, scale=None):
+    """Load a guinea pig image from the assets directory. Optionally scale it."""
+    path = os.path.join(PIG_ASSETS_DIR, "LH_GP_Sprites", name)
+    try:
+        image = pygame.image.load(path).convert_alpha()
+        if scale:
+            image = pygame.transform.scale(image, scale)
+        return image
+    except Exception as e:
+        print(f"Error loading guinea pig image {name}: {e}")
+        return None
+
 def load_sound(name):
     """Load a sound from the assets directory."""
     path = os.path.join(ASSETS_DIR, "audio", name)

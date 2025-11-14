@@ -18,7 +18,7 @@ Before running any of the files in minigame please do the following:
    - player.py
    - game.py
    - main.py
-- Final enjoy!
+- Finally enjoy!
 
 ## Updates: 
 - 10/31/25 Repo initialized with basic maze logic
@@ -40,5 +40,5 @@ Before running any of the files in minigame please do the following:
 
 
 ## Misc
-If any bugs happen please report them on the discord, and I will take a look at them
-Otherwise have a great time with this little mini-game
+If any bugs happen please report them on the discord, and I will take a look at them.
+Otherwise have a great time with this little mini-game.

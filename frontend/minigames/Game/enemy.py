@@ -33,6 +33,9 @@ class Enemy:
         if not self.can_move():
             return
 
+
+        ### FIX ME ###
+        # At the moment, the enemy just moves directly towards the player, however this should be more random
         if self.position[0] < player_pos[0] and maze.is_wall(self.position[0] + 1, self.position[1]) == False:
             self.position[0] += 1
             self.last_move_time = pygame.time.get_ticks()

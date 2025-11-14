@@ -4,18 +4,28 @@ import os
 from settings import TILE_SIZE, RED
 
 class Player:
-    def __init__(self, x=0, y=0, color=RED, seed=None, speed=300):
+    def __init__(self, x=0, y=0, color=RED, seed=None, speed=3):
+        # Player position
         self.pos_x = x
         self.pos_y = y
+
+        # Player appearance
         self.color = color
+
+        # Random seed for reproducibility
         self.seed = seed
-        self.speed = speed  # milliseconds per move (Bigger is slower)
+       
+        # Speed related attributes
+        self.speed = speed
+        self.BASE_COOLDOWN = 500 # Base cooldown in milliseconds
+        self.SPEED_STEP = 45 # Base cooldown step in milliseconds
+        self.move_cooldown = self.BASE_COOLDOWN - (self.speed * self.SPEED_STEP)
         self.last_move_time = 0 # Time of the last move in milliseconds
 
     def can_move(self):
         """Determine if the player can move based on speed and time."""
         now = pygame.time.get_ticks()
-        return now - self.last_move_time >= self.speed
+        return now - self.last_move_time >= self.move_cooldown
 
     def move(self, dx, dy, maze):
         """Move the player by (dx, dy) if the target position is not a wall."""

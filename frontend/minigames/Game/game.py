@@ -24,7 +24,7 @@ class Game:
         self.PACMAN_MAZE = generator.generate()
         
         # Initialize player
-        self.player = Player(seed=42, speed=300)
+        self.player = Player(seed=42, speed=10) ### FIX ME ###   # Speed should be a variable not hard coded, same for seed
         self.PACMAN_MAZE = self.player.add_player(self.PACMAN_MAZE)
 
         # Initialize Enemy
@@ -35,10 +35,12 @@ class Game:
         self.fruit = Fruit(fruit_chance=0.1, seed=42)
         self.PACMAN_MAZE = self.fruit.add_fruits(self.PACMAN_MAZE)
 
+        # Initialize Maze
         self.maze = Maze(self.PACMAN_MAZE)
         self.screen = pygame.display.set_mode((self.maze.width, self.maze.height))
         pygame.display.set_caption("Pac-Man Maze Game")
 
+        # Start game clock
         self.clock = pygame.time.Clock()
         self.running = True
 

@@ -1,7 +1,7 @@
 # Guinea Games! 
-Empty Right Now!....
-Buuuuuuut....
-Mini-game logic is in place!
+Empty Right Now!....  
+Buuuuuuut....  
+Mini-game logic is in place!  
 
 ## Minigame Documentation
 Before running any of the files in minigame please do the following: 
@@ -21,13 +21,13 @@ Before running any of the files in minigame please do the following:
 - Finally enjoy!
 
 ## The Maze
-🐹 Guinea Pig vs. Fruit-Hoarding Dragon! 🐉
-You’re a brave little guinea pig with a big appetite and an even bigger problem: you’ve been plopped into a fruit-filled maze… guarded by a hungry dragon who thinks guinea pig is the tastiest snack of all! 🍓🔥
-Your mission? Snatch every last fruit before the dragon snatches you.
-Use WASD or ↑↓←→ to scurry, squeak, and sprint your way through twisty tunnels.
-If the dragon catches you—crunch! Game over.
-But if you collect all the fruit first? Victory is yours! 🎉
-Just don’t get too comfy… this maze has a funny way of calling you back for seconds. 🍒👀
+🐹 Guinea Pig vs. Fruit-Hoarding Dragon! 🐉  
+You’re a brave little guinea pig with a big appetite and an even bigger problem: you’ve been plopped into a fruit-filled maze… guarded by a hungry dragon who thinks guinea pig is the tastiest snack of all! 🍓🔥  
+Your mission? Snatch every last fruit before the dragon snatches you.  
+Use WASD or ↑↓←→ to scurry, squeak, and sprint your way through twisty tunnels.  
+If the dragon catches you—crunch! Game over.  
+But if you collect all the fruit first? Victory is yours! 🎉  
+Just don’t get too comfy… this maze has a funny way of calling you back for seconds. 🍒👀  
 
 
 ## Updates: 
@@ -50,5 +50,5 @@ Just don’t get too comfy… this maze has a funny way of calling you back for 
 
 
 ## Misc
-If any bugs happen please report them on the discord, and I will take a look at them.
+If any bugs happen please report them on the discord, and I will take a look at them.  
 Otherwise have a great time with this little mini-game.

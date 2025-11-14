@@ -20,13 +20,23 @@ Before running any of the files in minigame please do the following:
    - main.py
 - Finally enjoy!
 
+## The Maze
+🐹 Guinea Pig vs. Fruit-Hoarding Dragon! 🐉
+You’re a brave little guinea pig with a big appetite and an even bigger problem: you’ve been plopped into a fruit-filled maze… guarded by a hungry dragon who thinks guinea pig is the tastiest snack of all! 🍓🔥
+Your mission? Snatch every last fruit before the dragon snatches you.
+Use WASD or ↑↓←→ to scurry, squeak, and sprint your way through twisty tunnels.
+If the dragon catches you—crunch! Game over.
+But if you collect all the fruit first? Victory is yours! 🎉
+Just don’t get too comfy… this maze has a funny way of calling you back for seconds. 🍒👀
+
+
 ## Updates: 
 - 10/31/25 Repo initialized with basic maze logic
 - 11/4/25 New version released with emphasis on OOP concepts
 - 11/5/25 Player logic, enemy spawn logic, maze generation logic, and other various features added
 - 11/6/25 Fruit logic added, along with win/lose conditions, and logic for looping in maze
 - 11/11/25 Basic speed logic added, still a work in progress
-- 11/14/25 Speed logic implemented in levels of 1-10, fixing asset loading logic
+- 11/14/25 Speed logic implemented in levels of 1-10, attempting to fix asset loading logic
 
 ## Future Implementations/Fixes
 1. As of now only "background" audio is loaded, interestingly enough pygame does not like using relative pathing, and therefore assets need to be stored in the same file directory

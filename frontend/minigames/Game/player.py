@@ -4,7 +4,7 @@ import os
 from settings import TILE_SIZE, RED
 
 class Player:
-    def __init__(self, x=0, y=0, color=RED, seed=None, speed=3):
+    def __init__(self, x=0, y=0, color=RED, seed=None, speed=3, stamina=3):
         # Player position
         self.pos_x = x
         self.pos_y = y
@@ -29,9 +29,11 @@ class Player:
         # Stamina/Endurance System (Should transition to levels rather than milliseconds)
         self.stamina = 0
         self.stamina_max = 100
-        self.stamina_gain = 6
-        self.stamina_drain = 8
-        self.boost_threashold = 70
+        self.stamina_level = stamina 
+
+        self.stamina_gain = 3 * self.stamina_level
+        self.stamina_drain = 20 - (2 * self.stamina_level)
+        self.boost_threashold = 100 - (5 * self.stamina_level)
         self.is_boosting = False 
 
     def can_move(self):
@@ -85,7 +87,6 @@ class Player:
             self.updated_stamina()
 
             self.last_move_time = pygame.time.get_ticks() # Update last move time
-
 
     def add_player(self, grid):
         """Randomly add player ('P') to the maze."""

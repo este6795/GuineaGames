@@ -7,6 +7,7 @@ from settings import *
 from maze_generator import MazeGenerator
 from enemy import Enemy
 from fruits import Fruit
+from hud import HUD
 
 # Path to assets 
 base_path = os.path.dirname(__file__)
@@ -30,6 +31,9 @@ class Game:
         # Initialize Enemy
         self.enemy = Enemy(seed=42)
         self.PACMAN_MAZE = self.enemy.add_enemies(self.PACMAN_MAZE)
+
+        # Initialize HUD
+        self.hud = HUD(self.player)
         
         # Initialize Fruit 
         self.fruit = Fruit(fruit_chance=0.1, seed=42)
@@ -107,6 +111,7 @@ class Game:
             # Draw maze, player, enemy, and fruits
             self.screen.fill(BLACK)
             self.maze.draw(self.screen)
+            self.hud.draw(self.screen)
             self.player.draw(self.screen)
             self.enemy.move_towards_player((self.player.pos_x, self.player.pos_y), self.maze)
             self.enemy.draw(self.screen)

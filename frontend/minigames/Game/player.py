@@ -16,17 +16,52 @@ class Player:
         self.seed = seed
        
         # Speed related attributes
-        self.speed = speed
+        self.base_speed = 1
+        self.boosted_speed = speed
+        self.speed_level = 1
+
+        #Cooldown system
         self.BASE_COOLDOWN = 500 # Base cooldown in milliseconds
         self.SPEED_STEP = 45 # Base cooldown step in milliseconds
-        self.move_cooldown = self.BASE_COOLDOWN - (self.speed * self.SPEED_STEP)
+        self.move_cooldown = self._calc_cooldown(self.speed_level)
         self.last_move_time = 0 # Time of the last move in milliseconds
+
+        # Stamina/Endurance System (Should transition to levels rather than milliseconds)
+        self.stamina = 0
+        self.stamina_max = 100
+        self.stamina_gain = 6
+        self.stamina_drain = 8
+        self.boost_threashold = 70
+        self.is_boosting = False 
 
     def can_move(self):
         """Determine if the player can move based on speed and time."""
         now = pygame.time.get_ticks()
         return now - self.last_move_time >= self.move_cooldown
 
+    def _calc_cooldown(self, speed_level):
+        return self.BASE_COOLDOWN - (speed_level * self.SPEED_STEP)
+    
+    def updated_stamina(self): 
+        # print(f'Current speed is: {self.stamina}')
+        now = pygame.time.get_ticks()
+
+        if self.is_boosting: 
+            drain_amount = self.stamina_drain * ((now - self.last_move_time) / 100)
+            # print(f'Draining by: {drain_amount}')
+            self.stamina -= drain_amount
+            if self.stamina <= 0: 
+                self.stamina = 0
+                self.is_boosting = False 
+                self.speed_level = self.base_speed 
+                self.move_cooldown = self._calc_cooldown(self.speed_level)
+
+        else: 
+            if self.stamina >= self.boost_threashold:
+                self.is_boosting = True
+                self.speed_level = self.boosted_speed
+                self.move_cooldown = self._calc_cooldown(self.speed_level)
+   
     def move(self, dx, dy, maze):
         """Move the player by (dx, dy) if the target position is not a wall."""
 
@@ -35,11 +70,22 @@ class Player:
 
         new_x = self.pos_x + dx
         new_y = self.pos_y + dy
+
         # Only move when the destination is not a wall
         if not maze.is_wall(new_x, new_y):
             self.pos_x = new_x
             self.pos_y = new_y
+
+            # Gain stamina as player moves
+            self.stamina += self.stamina_gain
+            if self.stamina > self.stamina_max: 
+                self.stamina = self.stamina_max
+            
+            # Update stamina/boost logic
+            self.updated_stamina()
+
             self.last_move_time = pygame.time.get_ticks() # Update last move time
+
 
     def add_player(self, grid):
         """Randomly add player ('P') to the maze."""

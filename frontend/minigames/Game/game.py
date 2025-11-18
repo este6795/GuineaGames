@@ -44,9 +44,10 @@ class Game:
         self.screen = pygame.display.set_mode((self.maze.width, self.maze.height))
         pygame.display.set_caption("Pac-Man Maze Game")
 
-        # Start game clock
+        # Start game clock and score
         self.clock = pygame.time.Clock()
         self.running = True
+        self.score = 0
 
     def handle_player_input(self):
         """Handle user input for player movement."""

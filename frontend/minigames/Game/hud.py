@@ -21,12 +21,15 @@ from settings import WHITE, RED, GREEN
 class HUD:
     def __init__(self, player):
         self.player = player
+        self.font = pygame.font.SysFont("Arial", 24)
         self.bar_width = 200
         self.bar_height = 20
         self.margin = 10
+        self.score = 0
 
     def draw_score(self, screen): 
-        pass
+        text = self.font.render(f"Score: {self.score}", True, WHITE)
+        screen.blit(text, (450 ,self.margin))
 
     def draw_win(self, screen):
         pass
@@ -52,5 +55,6 @@ class HUD:
 
     def draw(self, screen):
         self.draw_stamina_bar(screen)
+        self.draw_score(screen)
 
 

@@ -37,6 +37,7 @@ Just don’t get too comfy… this maze has a funny way of calling you back for 
 - 11/6/25 Fruit logic added, along with win/lose conditions, and logic for looping in maze
 - 11/11/25 Basic speed logic added, still a work in progress
 - 11/14/25 Speed logic implemented in levels of 1-10, attempting to fix asset loading logic
+- 11/18/25 Speed and Stamina logic implemented! Stamina/Endurance is from a scale of 1-10, adding stamina bar as a bonus
 
 ## Future Implementations/Fixes 🛠️
 1. As of now only "background" audio is loaded, interestingly enough pygame does not like using relative pathing, and therefore assets need to be stored in the same file directory

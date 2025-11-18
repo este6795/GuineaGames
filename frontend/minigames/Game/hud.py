@@ -25,6 +25,15 @@ class HUD:
         self.bar_height = 20
         self.margin = 10
 
+    def draw_score(self, screen): 
+        pass
+
+    def draw_win(self, screen):
+        pass
+
+    def draw_lose(self, screen):
+        pass
+
     def draw_stamina_bar(self, screen):
         x = self.margin 
         y = self.margin

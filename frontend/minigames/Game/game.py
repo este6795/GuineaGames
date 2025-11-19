@@ -116,7 +116,11 @@ class Game:
             self.player.draw(self.screen)
             self.enemy.move_towards_player((self.player.pos_x, self.player.pos_y), self.maze)
             self.enemy.draw(self.screen)
-            self.PACMAN_MAZE = self.fruit.if_collected((self.player.pos_x, self.player.pos_y), self.PACMAN_MAZE)
+            self.PACMAN_MAZE, collected = self.fruit.if_collected((self.player.pos_x, self.player.pos_y),self.PACMAN_MAZE)
+            if collected:
+                self.score += 100
+                self.hud.score = self.score   # Or any points you want
+
             self.fruit.draw(self.screen, self.PACMAN_MAZE)
 
             pygame.display.flip()

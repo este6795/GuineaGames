@@ -28,12 +28,16 @@ class Fruit:
     def if_collected(self, player_pos, grid):
         """Check if the player has collected a fruit."""
         x, y = player_pos
+        collected = False
+
         if grid[y][x] == '2':
-            # Remove the fruit from the grid
+            collected = True
             new_row = list(grid[y])
-            new_row[x] = '0'  # Replace fruit with path
+            new_row[x] = '0'
             grid[y] = ''.join(new_row)
-        return grid
+
+        return grid, collected
+
 
     def all_fruits_collected(self, grid):
         """Check if all fruits have been collected."""

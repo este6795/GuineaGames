@@ -38,7 +38,6 @@ class Fruit:
 
         return grid, collected
 
-
     def all_fruits_collected(self, grid):
         """Check if all fruits have been collected."""
         for row in grid:
